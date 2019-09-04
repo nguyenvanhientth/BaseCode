@@ -24,43 +24,18 @@ class Home extends PureComponent {
     headerTitleStyle: { color: '#000', fontWeight: 'bold', fontSize: 18 },
     title: 'Intagaram',
     headerLeft: <DrawerButton navigation={navigation} />,
-    headerRight: <HeaderButton iconName="plus" style={styles.mr15} navigation={navigation} onPress={() => console.warn('click')} />
+    headerRight: <HeaderButton iconName="bell" style={styles.mr15} navigation={navigation} onPress={() => console.warn('click')} />
 })
 
   componentDidMount = () => {
-    this.setState({
-      data: [
-        {
-            "albumId": 1,
-            "id": 1,
-            "title": "accusamus beatae ad facilis cum similique qui sunt",
-            "url": "https://via.placeholder.com/600/92c952",
-            "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-        },
-        {
-            "albumId": 1,
-            "id": 2,
-            "title": "reprehenderit est deserunt velit ipsam",
-            "url": "https://via.placeholder.com/600/771796",
-            "thumbnailUrl": "https://via.placeholder.com/150/771796"
-        },
-        {
-            "albumId": 1,
-            "id": 3,
-            "title": "officia porro iure quia iusto qui ipsa ut modi",
-            "url": "https://via.placeholder.com/600/24f355",
-            "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-        }]
-    });
-    // fetch('https://api.myjson.com/bins/dre27')
-    //   .then((response) => response.json())
-    //   .then((responseJson) => {
-    //     console.log(responseJson)
-    //       this.setState({data: responseJson});
-    //   })
-    //   .catch((error) => {
-    //       console.error(error);
-    //   });
+    fetch('https://api.myjson.com/bins/dre27')
+      .then((response) => response.json())
+      .then((responseJson) => {
+          this.setState({data: responseJson});
+      })
+      .catch((error) => {
+          console.error(error);
+      });
   }
 
   renderItem = ({item}) => <ImageElement data = {item} />
@@ -75,7 +50,6 @@ class Home extends PureComponent {
     }
     return (
       <View>
-        <Text>{this.state.data.length}</Text>
         <FlatList 
           data={this.state.data}
           // getItemLayout = { (item,index) => (
@@ -83,6 +57,8 @@ class Home extends PureComponent {
           // )}
           renderItem={(item) => this.renderItem(item)}
           keyExtractor = {(item,index) => index.toString()}
+          contentContainerStyle={styles.container}
+          style={{ backgroundColor: '#FFF' }}
         />
       </View>
     );

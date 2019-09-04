@@ -5,4 +5,5 @@ export default styles = StyleSheet.create({
         flex:1,
         backgroundColor:'#FFF'
     },
+    mr15: { marginRight: 15 },
 })

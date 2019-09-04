@@ -4,34 +4,36 @@ import styles from './Home.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const ImageElement = ({data}) => {
-    console.warn(data)
     return (
-        <View >
+        <View style = {styles.item}>
             <View style = {styles.row}>
-                <Text>
+                <Text style = {{marginTop:10}}>
                     {data.id}
                 </Text>
-                <TouchableOpacity>
-                    <Icon name = "ellipsis-h" size = {18} style = {styles.icon} />
+                <TouchableOpacity style={styles.icon}>
+                    <Icon name = "ellipsis-h" size = {20}  />
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity>
+                <Image style={styles.image} source={{uri: data.url}}/>
+            </TouchableOpacity>
             {/* {
                 data.url ? <Image style={styles.image} source={{uri: data.url}}/>
                 : <View style = {styles.image}>
                     <Text>No Image</Text>
                 </View>
             } */}
-            <View style = {styles.row}>
-                <TouchableOpacity>
-                    <Icon name = "heart-o" size = {18} style = {styles.icon1} />
+            <View style = {[styles.row, {paddingBottom: '10%'}]}>
+                <TouchableOpacity  style = {styles.icon1}>
+                    <Icon name = "heart-o" size = {25}   />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Icon name = "ellipsis-h" size = {18} style = {styles.icon2} />
+                <TouchableOpacity style = {styles.icon2}>
+                    <Icon name = "ellipsis-h" size = {25}  />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Icon name = "ellipsis-h" size = {18} style = {styles.icon3} />
+                <TouchableOpacity style = {styles.icon3}>
+                    <Icon name = "ellipsis-h" size = {25}  />
                 </TouchableOpacity>
-            </View> 
+            </View>
          </View>
     )
 }

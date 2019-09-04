@@ -2,38 +2,43 @@
 import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:'#FFF'
+    ontainer:{
+        padding:15,
+    },
+    item:{
+        position:'relative',
+        paddingVertical:10,
+        borderBottomWidth:1,
+        borderBottomColor:'#eee',
+        paddingRight: 5
     },
     mr15: { marginRight: 15 },
-    item: {height: '50%'},
-    image: {height: '90%'},
+    image: {height: 300},
     row:{
         flexDirection:'row',
-        marginBottom:15,
+        marginBottom:10,
     },
     icon:{
         position:'absolute',
         right:20,
-        top:50,
+        top:10,
         color:'#555',
     },
     icon1:{
         position:'absolute',
-        left:10,
+        left:20,
         top:10,
         color:'#555',
     },
     icon2:{
         position:'absolute',
-        left:30,
+        left:70,
         top:10,
         color:'#555',
     },
     icon3:{
         position:'absolute',
-        left:50,
+        left:1200,
         top:10,
         color:'#555',
     },

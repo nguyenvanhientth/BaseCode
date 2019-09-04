@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import  styles from './Profile.styles';
 //import { ProfileWrapper } from './Profile.styles';
+import  DrawerButton  from '../../../core/common/Buttons/DrawerButton';
+import HeaderButton  from '../../../core/common/Buttons/HeaderButton';
 
 class Profile extends PureComponent { 
   constructor(props) {
@@ -12,7 +14,15 @@ class Profile extends PureComponent {
       hasError: false,
     };
   }
-
+  static navigationOptions = ({ navigation }) => ({
+    headerStyle: {
+        backgroundColor: '#fff'
+    },
+    headerTitleStyle: { color: '#000', fontWeight: 'bold', fontSize: 18 },
+    title: 'Profile',
+    headerLeft: <DrawerButton navigation={navigation} />,
+    headerRight: <HeaderButton iconName="ellipsis-v" style={styles.mr15} navigation={navigation} onPress={() => console.warn('click')} />
+})
   render () {
     if (this.state.hasError) {
       return (

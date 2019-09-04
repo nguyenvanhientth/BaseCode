@@ -43,7 +43,7 @@ class Login extends PureComponent {
                     placeholderTextColor="#555"
                     onChangeText={(userName) => this.setState({ userName })}
                 />
-                <Icon name="mail" style={styles.icon} size={18} />
+                <Icon name="user" style={styles.icon} size={18} />
             </View>
             <View style={styles.formGroup}>
                 <TextInput style={[styles.textInput, styles.textInput]}
