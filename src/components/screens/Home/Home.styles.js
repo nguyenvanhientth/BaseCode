@@ -2,14 +2,16 @@
 import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
-    ontainer:{
+    container:{
+        flex:1,
         padding:15,
+        justifyContent: 'center',
     },
     item:{
         position:'relative',
         paddingVertical:10,
-        borderBottomWidth:1,
-        borderBottomColor:'#eee',
+        // borderBottomWidth:1, //boder bottom 
+        // borderBottomColor:'#eee',
         paddingRight: 5
     },
     mr15: { marginRight: 15 },
@@ -42,4 +44,13 @@ export default styles = StyleSheet.create({
         top:10,
         color:'#555',
     },
+    separator : {
+        height: 1,
+        width: "100%",
+        backgroundColor: "#CED0CE",
+        marginLeft: "0%"
+    },
+    textCenter: {
+        textAlign: "center",
+    }
 })

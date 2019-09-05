@@ -70,14 +70,15 @@ const HomeTab = createBottomTabNavigator({
 },
 {
     initialRouteName: "Home",
+    
     tabBarOptions:{
         style:{
             backgroundColor:'#fff'
         },
         activeTintColor: colors.mainColor,
         inactiveTintColor: '#333',
-    }},
-);
+    }
+},);
 
 const SearchTab = createBottomTabNavigator({
     Home: HomeStack,
@@ -87,6 +88,7 @@ const SearchTab = createBottomTabNavigator({
 },
 {
     initialRouteName: "Search",
+    
     tabBarOptions:{
         style:{
             backgroundColor:'#fff'
@@ -153,4 +155,8 @@ export default Navigator = createSwitchNavigator({
     LoginStack,
     App,
     // HomeStack
-});
+},
+{
+    
+}
+);

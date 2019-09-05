@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { View, StyleSheet, ActivityIndicator } from "react-native";
 
-export default class LoadingIndicator extends Component {
+export default class LoadingIndicator extends PureComponent {
   render() {
     const { size, color, style } = this.props;
     return (

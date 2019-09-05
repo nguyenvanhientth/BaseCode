@@ -37,7 +37,7 @@ class Login extends PureComponent {
           <Image source={logo} style = {styles.logo} />
             <Text style={styles.title}>Đăng Nhập</Text>
             <View style={styles.formGroup}>
-                <TextInput style={[styles.textInput, styles.textInput]}
+                <TextInput style={[ styles.textInput]}
                     underlineColorAndroid="transparent"
                     placeholder="Tên đăng nhập"
                     placeholderTextColor="#555"

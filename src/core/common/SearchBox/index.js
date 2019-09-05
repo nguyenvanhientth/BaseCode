@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-export default class SeachBox extends Component{
+export default class SearchBox extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -18,7 +18,7 @@ export default class SeachBox extends Component{
 
     _renderClearButton = ()=>{
         if(this.state.searchVal!==''){  
-            return (<TouchableOpacity onPress={()=> {this.setState({searchVal:''}); this.props.onSearch('')}}  style={styles.iconClose}><Icon.Feather name="x" size={22}></Icon.Feather></TouchableOpacity>)
+            return (<TouchableOpacity onPress={()=> {this.setState({searchVal:''}); this.props.onSearch('')}}  style={styles.iconClose}><Icon name= { Platform.OS === "ios" ? "ios-close" : "md-close"} size={25}></Icon></TouchableOpacity>)
         }
         return null;
     }
@@ -32,10 +32,10 @@ export default class SeachBox extends Component{
                     placeholder={placeholder}
                     style={[styles.inputSearch, style]}
                     value={this.state.searchVal}
-                    autoFocus = {true}
+                    // autoFocus = {true}
                     onChangeText={(text) => this._handleChange(text)}
                     />
-                    <Icon name = {Platform.OS === "ios" ? "ios-search" : "md-search"} style={styles.iconSearch}></Icon>
+                    <Icon size = {25} name = {Platform.OS === "ios" ? "ios-search" : "md-search"} style={styles.iconSearch}></Icon>
                     {this._renderClearButton()}
             </View>
         )

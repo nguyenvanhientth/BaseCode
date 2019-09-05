@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, Text,TouchableOpacity, Image} from 'react-native';
 import styles from './Home.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import FastImageElement from '../../../core/common/FastImage'
 
 export const ImageElement = ({data}) => {
     return (
@@ -15,14 +16,9 @@ export const ImageElement = ({data}) => {
                 </TouchableOpacity>
             </View>
             <TouchableOpacity>
-                <Image style={styles.image} source={{uri: data.url}}/>
+                {/* <Image style={styles.image} source={{uri: data.iconLink}}/> */}
+                <FastImageElement url = {data.iconLink}  />
             </TouchableOpacity>
-            {/* {
-                data.url ? <Image style={styles.image} source={{uri: data.url}}/>
-                : <View style = {styles.image}>
-                    <Text>No Image</Text>
-                </View>
-            } */}
             <View style = {[styles.row, {paddingBottom: '10%'}]}>
                 <TouchableOpacity  style = {styles.icon1}>
                     <Icon name = "heart-o" size = {25}   />

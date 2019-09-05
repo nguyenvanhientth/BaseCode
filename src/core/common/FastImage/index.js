@@ -1,3 +1,3 @@
-import FastImage from './FastImage';
+import {FastImageElement} from './FastImage';
 
-export default FastImage;
+export default FastImageElement;

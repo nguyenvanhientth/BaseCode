@@ -14,12 +14,13 @@ class DrawerContent extends PureComponent {
     };
   }
   _signOutAsync =  async(navigator) => {
-    await AsyncStorage.clear();
+    // await AsyncStorage.clear();
      navigator.navigation.navigate('LoginStack');
 };
 _onClickApp = (navigator) => {
   // this.setState({ activeMenu: 'send-feedback' });
-  navigator.navigation.navigate('App');
+  console.warn('click')
+//   navigator.navigation.navigate('App');
 }
   render () {
     if (this.state.hasError) {
