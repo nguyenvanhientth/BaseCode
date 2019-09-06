@@ -1,3 +1,6 @@
+//@ts-check
+//@ts-ignore
+//@ts-nocheck
 import React, { PureComponent } from 'react';
 import { View, Text, Image, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
@@ -26,7 +29,7 @@ class Login extends PureComponent {
   render () {
     if (this.state.hasError) {
       return (
-        <View style={styles.LoginWrapper}>
+        <View style={styles.container}>
           <Text>Something went wrong.</Text>
         </View>
       );

@@ -1,3 +1,4 @@
+//@ts-check
 import React, { PureComponent } from 'react';
 import { View, Text, FlatList, TouchableHighlight, RefreshControl } from 'react-native';
 import PropTypes from 'prop-types';
@@ -6,7 +7,6 @@ import styles from './Home.styles';
 import  DrawerButton  from '../../../core/common/Buttons/DrawerButton';
 import HeaderButton  from '../../../core/common/Buttons/HeaderButton';
 import {ImageElement} from './ImageElement'
-import { ScrollView } from 'react-native-gesture-handler';
 import {colors} from '../../../core/common/styles';
 import SearchBox from "../../../core/common/SearchBox"
 import LoadingIndicator from '../../../core/common/Loading';
@@ -20,8 +20,6 @@ class Home extends PureComponent {
       hasError: false,
       isRefreshing: false,
       data: [],
-      page: 2,
-      totalPage: 0
     };
   }
   static navigationOptions = ({ navigation }) => ({
@@ -35,14 +33,11 @@ class Home extends PureComponent {
 })
 
   componentDidMount() {
-    // fetch('https://jsonplaceholder.typicode.com/photos')
-    fetch('http://18.138.215.174:8082/schola-content-management/units?pageNumber=1&size=10')
+    fetch('https://jsonplaceholder.typicode.com/photos')
       .then((response) => response.json())
       .then((responseJson) => {
           this.setState({
-            data: responseJson._embedded.unitEntities,
-            totalPage: responseJson.page.totalPages,
-            page: 2,
+            data: responseJson
           });
       })
       .catch((error) => {
@@ -50,21 +45,7 @@ class Home extends PureComponent {
       });
   }
   fetchData = () => {
-    if (!(this.state.page > this.state.totalPage)) {
-      fetch('http://18.138.215.174:8082/schola-content-management/units?pageNumber=' + this.state.page + '&size=10')
-      .then((response) => response.json())
-      .then((responseJson) => {
-          this.setState({
-            data:  [...this.state.data,...responseJson._embedded.unitEntities],
-            page: this.state.page + 1
-          });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    } else {
       alert("No load more!")
-    }
   }
   renderItem = ({item}) => <ImageElement data = {item} />
   renderSeparator = () => {

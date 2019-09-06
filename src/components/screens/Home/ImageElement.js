@@ -17,7 +17,7 @@ export const ImageElement = ({data}) => {
             </View>
             <TouchableOpacity>
                 {/* <Image style={styles.image} source={{uri: data.iconLink}}/> */}
-                <FastImageElement url = {data.iconLink}  />
+                <FastImageElement url = {data.url}  />
             </TouchableOpacity>
             <View style = {[styles.row, {paddingBottom: '10%'}]}>
                 <TouchableOpacity  style = {styles.icon1}>
