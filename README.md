@@ -1,4 +1,5 @@
 # BaseCode 
+<!---
 var React = require("react-native");
 var {
   StyleSheet,
@@ -237,3 +238,4 @@ var styles = StyleSheet.create({
 });
 
 module.exports = App;
+-->
